@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply min-h-screen bg-background font-sans text-sm leading-6 text-foreground antialiased;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  h1 {
+    @apply text-3xl font-semibold leading-tight tracking-tight text-foreground;
+  }
+
+  h2 {
+    @apply text-xl font-semibold leading-7 text-foreground;
+  }
+
+  h3 {
+    @apply text-sm font-medium leading-6 text-foreground;
+  }
+
+  code {
+    @apply font-mono text-[0.85em];
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.08em] text-muted-foreground;
+  }
+
+  .panel-shell {
+    @apply rounded-lg border border-border bg-card shadow-panel;
+  }
+
+  .panel-body {
+    @apply p-4;
+  }
+
+  .workflow-handle {
+    @apply h-2.5 w-2.5 rounded-full border-2 border-background bg-foreground;
+  }
+
+  .graph-node {
+    @apply transition-all duration-150 ease-out;
+  }
+
+  .graph-node-current {
+    @apply scale-[1.02];
+  }
+
+  .graph-node-current .graph-node-card::after {
+    content: '';
+    @apply pointer-events-none absolute inset-[-5px] rounded-[18px] border border-foreground/20 animate-node-pulse;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.react-flow__node {
+  background: transparent;
+  border: 0;
+}
+
+.react-flow__controls {
+  box-shadow: none;
+  border: 1px solid hsl(0 0% 89%);
+  border-radius: 0.65rem;
+  overflow: hidden;
+}
+
+.react-flow__controls button {
+  background: white;
+  border-bottom: 1px solid hsl(0 0% 89%);
+}
+
+.react-flow__controls button:last-child {
+  border-bottom: 0;
+}
+
+.react-flow__edge-textbg {
+  fill: rgba(255, 255, 255, 0.92);
+}
+
+.react-flow__edge-text {
+  @apply text-xs;
+}
